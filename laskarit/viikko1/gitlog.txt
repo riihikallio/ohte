@@ -1,0 +1,20 @@
+﻿commit b7a1eaa52ebb780e247806f183f23acd9ddf251f
+Author: Petri Riihikallio <petri.riihikallio@metis.fi>
+Date:   Tue Mar 17 21:21:01 2020 +0200
+
+    toka
+
+ tiedostoja/file1             | 1 -
+ tiedostoja/{file2 => file22} | 0
+ 2 files changed, 1 deletion(-)
+
+commit c41506a072dd34dd1cbc2011cc28a514c75f5dbb
+Author: Petri Riihikallio <petri.riihikallio@metis.fi>
+Date:   Tue Mar 17 20:17:43 2020 +0200
+
+    Eka
+
+ tiedostoja/file1 | 1 +
+ tiedostoja/file2 | 1 +
+ tiedostoja/file3 | 1 +
+ 3 files changed, 3 insertions(+)

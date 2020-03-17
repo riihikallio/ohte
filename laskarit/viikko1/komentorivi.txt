@@ -1,0 +1,22 @@
+﻿kurssit
+âââ ot2019
+    âââ viikko1
+        âââ Unicafe
+            âââ pom.xml
+            âââ src
+                âââ main
+                âÂ Â  âââ java
+                âÂ Â      âââ com
+                âÂ Â          âââ mycompany
+                âÂ Â              âââ unicafe
+                âÂ Â                  âââ Kassapaate.java
+                âÂ Â                  âââ Maksukortti.java
+                âÂ Â                  âââ Paaohjelma.java
+                âââ test
+                    âââ java
+                        âââ com
+                            âââ mycompany
+                                âââ unicafe
+                                    âââ MaksukorttiTest.java
+
+14 directories, 5 files
