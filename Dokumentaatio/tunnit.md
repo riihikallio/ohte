@@ -4,4 +4,4 @@
 | :----:|:-----| :-----|
 | 24.3. | 1    | Mietin aihetta |
 |  | 1    | Dokumentaatiota |
-| Yht | 1 | |
+| Yht | 2 | |
