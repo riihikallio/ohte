@@ -2,6 +2,7 @@ package dnstester.ui;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -17,7 +18,7 @@ public class UserInterface extends Application {
         layout.setPadding(new Insets(10));
         layout.getChildren().add(new Label("DNS Server IP address:"));
         layout.getChildren().add(new TextField("8.8.8.8"));
-        layout.getChildren().add(new Label("DNS Name to test:"));
+        layout.getChildren().add(new Label("Domain name to test with:"));
         layout.getChildren().add(new TextField("www.example.com"));
         layout.getChildren().add(new Button("Test"));
         
