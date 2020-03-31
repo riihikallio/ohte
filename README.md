@@ -7,3 +7,31 @@ Sovellus testaa halutun DNS-palvelimen vasteaikaa. Käyttäjältä kysytään DN
 [Vaatimusmäärittelyt](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/vaatimukset.md)
 
 [Tuntikirjanpito](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/tunnit.md)
+
+## Komentorivitoiminnot
+
+### Suorittaminen
+
+Sovelluksen voi käynnistää komennolla
+
+```bash
+mvn compile exec:java -Dexec.mainClass=dnstester.Main
+```
+
+### Testit
+
+Testit voi suorittaa komennolla
+
+```bash
+mvn test
+```
+
+Testejä ei vielä ole, koska ei ole sovelluslogiikkaa :(
+
+Testikattavuusraportti luodaan komennolla
+
+```bash
+mvn jacoco:report
+```
+
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/site/jacoco/index.html
