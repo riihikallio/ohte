@@ -6,4 +6,6 @@
 |  | 1    | Dokumentaatiota |
 | 29.3. | 3 | JavaFX:n kanssa taistelua |
 | 31.3. | 4 | Projektin alku ja käyttöliittymä |
-| Yht | 9 | |
+| 5.4. | 3 | Java.netiin perehtymistä |
+| 7.4. | 6 | Toimiva UDP-lähetys |
+| Yht | 18 | |
