@@ -40,6 +40,7 @@ public class UserInterface extends Application {
         if (server.length() > 0 && name.length() > 0) {
             result = tester.sendQuery(server, name);
             Alert a = new Alert(AlertType.INFORMATION, "Time: "+result.time+"ms");
+            a.show();
         }
     }
 
