@@ -13,6 +13,7 @@ public class Tester {
         result = new TestResult();
         buf = new byte[508];
         buf[1] = 1; // Query ID
+        buf[2] = 1; // Recursion Desired
         buf[5] = 1; // QDCount
 
         // Stuff the DNS name into the buffer
@@ -25,7 +26,9 @@ public class Tester {
                 ptr++;
             }
         }
-        buf[ptr] = 0;
+        buf[ptr] = 0; // End of query
+        buf[ptr+2] = 1; // QType A record
+        buf[ptr+4] = 1; // QClass Internet Address
 
         try {
 
