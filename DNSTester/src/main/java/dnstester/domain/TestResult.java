@@ -2,8 +2,8 @@ package dnstester.domain;
 
 
 public class TestResult {
-    boolean error = false;
-    String message;
-    String answer;
-    long time = 0;
+    public boolean error = false;
+    public String message;
+    public String answer;
+    public long time = 0;
 }
