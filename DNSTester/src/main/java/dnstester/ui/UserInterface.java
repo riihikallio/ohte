@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -13,7 +14,6 @@ public class UserInterface extends Application {
 
     @Override
     public void start(Stage stage) {
-        TestResult result = new TestResult();
         stage.setTitle("DNS Tester");
 
         VBox layout = new VBox(5);
@@ -26,17 +26,21 @@ public class UserInterface extends Application {
         layout.getChildren().add(name);
 
         Button btn = new Button("Test");
-        btn.setOnAction((e) -> {
-            Tester tester = new Tester();
-            if (server.getText().length() > 0 && name.getText().length() > 0) {
-                tester.sendQuery(server.getText(), name.getText());
-            }
-        });
+        btn.setOnAction((e) -> buttonPress(server.getText(), name.getText()));
         layout.getChildren().add(btn);
 
         Scene scene = new Scene(layout);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void buttonPress(String server, String name) {
+        Tester tester = new Tester();
+        TestResult result = new TestResult();
+        if (server.length() > 0 && name.length() > 0) {
+            result = tester.sendQuery(server, name);
+            Alert a = new Alert(AlertType.INFORMATION, "Time: "+result.time+"ms");
+        }
     }
 
     public static void main(String[] args) {
