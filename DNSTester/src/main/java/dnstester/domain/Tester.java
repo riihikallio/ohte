@@ -54,8 +54,9 @@ public class Tester {
             socket.send(packet);
 
             // Wait for response
+            buf=new byte[4096];
             packet = new DatagramPacket(buf, buf.length);
-            socket.setSoTimeout(5000);
+            socket.setSoTimeout(3000);
             socket.receive(packet);
             result.time = Math.round((System.nanoTime() - start) / 1e6);
         } catch (SocketTimeoutException e) {
