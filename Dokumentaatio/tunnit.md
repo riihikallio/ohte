@@ -8,4 +8,5 @@
 | 31.3. | 4 | Projektin alku ja käyttöliittymä |
 | 5.4. | 3 | Java.netiin perehtymistä |
 | 7.4. | 6 | Toimiva UDP-lähetys |
-| Yht | 18 | |
+| 14.4. | 7 | Testejä, toiminnan ja käyttöliittymän viilausta |
+| Yht | 25 | |
