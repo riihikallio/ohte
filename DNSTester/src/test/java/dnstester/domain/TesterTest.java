@@ -93,9 +93,14 @@ public class TesterTest {
     public void queryServerNotFound() {
         TestResult result = tester.sendQuery("X", "www.example.com");
         assertTrue("Error flag not set", result.fail);
-        assertTrue("Invalide server address not detected", result.error != null &&
-                result.error.contains("nodename nor servname provided"));
         assertFalse("Lost flag set", result.lost);
+    }
+
+    @Test(timeout = 5000)
+    public void packetLost() {
+        TestResult result = tester.sendQuery("8.8.8.1", "www.example.com");
+        assertFalse("Error flag set", result.fail);
+        assertTrue("Lost flag not set", result.lost);
     }
 
 }
