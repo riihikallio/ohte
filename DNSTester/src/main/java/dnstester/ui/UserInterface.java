@@ -26,21 +26,27 @@ public class UserInterface extends Application {
         layout.getChildren().add(name);
 
         Button btn = new Button("Test");
-        btn.setOnAction((e) -> buttonPress(server.getText(), name.getText()));
+        Label timeLbl = new Label("Response time: ");
+        btn.setOnAction((e) -> buttonPress(server.getText(), name.getText(), timeLbl));
         layout.getChildren().add(btn);
+        layout.getChildren().add(timeLbl);
 
         Scene scene = new Scene(layout);
         stage.setScene(scene);
         stage.show();
     }
 
-    private void buttonPress(String server, String name) {
+    private void buttonPress(String server, String name, Label label) {
         Tester tester = new Tester();
         TestResult result = new TestResult();
         if (server.length() > 0 && name.length() > 0) {
             result = tester.sendQuery(server, name);
-            Alert a = new Alert(AlertType.INFORMATION, "Time: "+result.time+"ms");
-            a.show();
+            if (result.fail) {
+                Alert a = new Alert(AlertType.ERROR, result.error);
+                a.show();
+            } else {
+                label.setText("Response time: " + result.time + " ms");
+            }
         }
     }
 
