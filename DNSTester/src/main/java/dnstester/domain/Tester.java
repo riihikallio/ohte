@@ -11,40 +11,55 @@ public class Tester {
 
     public TestResult sendQuery(String server, String name) {
         result = new TestResult();
-        buf = new byte[508];
-        buf[1] = 1; // Query ID
-        buf[2] = 1; // Recursion Desired
-        buf[5] = 1; // QDCount
+        buf = new byte[512];
+        buf[1] = 1;  // Query ID
+        buf[2] = 1;  // Recursion Desired
+        buf[5] = 1;  // QDCount
 
         // Stuff the DNS name into the buffer
         int ptr = 12;
         for (String part : name.split("\\.")) {
-            buf[ptr] = (byte) part.length();
+            buf[ptr] = (byte) part.length();  // Length first
+            if (buf[ptr] == 0 || buf[ptr] > 63) {
+                result.fail = true;
+                result.error = "Invalid query name";
+                return result;
+            }
             ptr++;
             for (char chr : part.toCharArray()) {
-                buf[ptr] = (byte) chr;
+                buf[ptr] = (byte) chr;  // Then the characters
                 ptr++;
+                if (ptr >= 506) {  // Do not overrun the buffer
+                    result.fail = true;
+                    result.error = "Test query name too long";
+                    return result;
+                }
             }
         }
-        buf[ptr] = 0; // End of query
-        buf[ptr+2] = 1; // QType A record
-        buf[ptr+4] = 1; // QClass Internet Address
+        if (ptr == 12)  {
+            result.fail = true;
+            result.error = "Empty query name";
+            return result;
+        }
+        buf[ptr] = 0;      // End of query string
+        buf[ptr + 2] = 1;  // QType A record
+        buf[ptr + 4] = 1;  // QClass Internet Address
 
         try {
-
+            // Send query
             address = InetAddress.getByName(server);
             DatagramSocket socket = new DatagramSocket();
             DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 53);
             long start = System.nanoTime();
             socket.send(packet);
 
+            // Wait for response
             packet = new DatagramPacket(buf, buf.length);
             socket.receive(packet);
             result.time = Math.round((System.nanoTime() - start) / 1e6);
-            result.answer = new String(packet.getData(), 0, packet.getLength());
         } catch (Exception e) {
-            result.error = true;
-            result.message = e.getMessage();
+            result.fail = true;
+            result.error = e.getMessage();
             return result;
         }
 
