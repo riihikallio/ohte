@@ -45,7 +45,11 @@ public class UserInterface extends Application {
                 Alert a = new Alert(AlertType.ERROR, result.error);
                 a.show();
             } else {
-                label.setText("Response time: " + result.time + " ms");
+                if (result.lost) {
+                    label.setText("Response time: LOST");
+                } else {
+                    label.setText("Response time: " + result.time + " ms");
+                }
             }
         }
     }

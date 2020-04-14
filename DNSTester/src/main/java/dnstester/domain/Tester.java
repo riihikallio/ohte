@@ -36,7 +36,7 @@ public class Tester {
                 }
             }
         }
-        if (ptr == 12)  {
+        if (ptr == 12) {
             result.fail = true;
             result.error = "Empty query name";
             return result;
@@ -55,12 +55,14 @@ public class Tester {
 
             // Wait for response
             packet = new DatagramPacket(buf, buf.length);
+            socket.setSoTimeout(5000);
             socket.receive(packet);
             result.time = Math.round((System.nanoTime() - start) / 1e6);
+        } catch (SocketTimeoutException e) {
+            result.lost = true;
         } catch (Exception e) {
             result.fail = true;
             result.error = e.getMessage();
-            return result;
         }
 
         return result;
