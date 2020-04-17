@@ -9,11 +9,11 @@ public class Tester {
     private byte[] buf;
     private TestResult result;
 
-    public TestResult sendQuery(String server, String name) {
+    public TestResult sendQuery(String server, boolean recursive, String name) {
         result = new TestResult();
         buf = new byte[512];
         buf[1] = 1;  // Query ID
-        buf[2] = 1;  // Recursion Desired
+        buf[2] = recursive ? (byte) 1 : (byte) 0;  // Recursion Desired
         buf[5] = 1;  // QDCount
 
         // Stuff the DNS name into the buffer

@@ -48,7 +48,15 @@ public class TesterTest {
 
     @Test(timeout = 5000)
     public void testerSuccess() {
-        TestResult result = tester.sendQuery("8.8.8.8", "www.example.com");
+        TestResult result = tester.sendQuery("8.8.8.8", false, "www.example.com");
+        assertTrue("Zero time elapsed", result.time > 0);
+        assertFalse("Error flag set", result.fail);
+        assertFalse("Lost flag set", result.lost);
+    }
+
+    @Test(timeout = 5000)
+    public void recursiveSuccess() {
+        TestResult result = tester.sendQuery("8.8.8.8", true, "www.example.com");
         assertTrue("Zero time elapsed", result.time > 0);
         assertFalse("Error flag set", result.fail);
         assertFalse("Lost flag set", result.lost);
@@ -56,7 +64,7 @@ public class TesterTest {
 
     @Test(timeout = 1000)
     public void queryNameMissing() {
-        TestResult result = tester.sendQuery("8.8.8.8", ".");
+        TestResult result = tester.sendQuery("8.8.8.8", false, ".");
         assertTrue("Error flag not set", result.fail);
         assertEquals("Empty name not detected", "Empty query name", result.error);
         assertFalse("Lost flag set", result.lost);
@@ -64,7 +72,7 @@ public class TesterTest {
 
     @Test(timeout = 1000)
     public void queryNamePartCheck() {
-        TestResult result = tester.sendQuery("8.8.8.8", "www..com");
+        TestResult result = tester.sendQuery("8.8.8.8", false, "www..com");
         assertTrue("Error flag not set", result.fail);
         assertEquals("Double dots not detected", "Invalid query name", result.error);
         assertFalse("Lost flag set", result.lost);
@@ -73,7 +81,7 @@ public class TesterTest {
     @Test(timeout = 1000)
     public void queryNamePartTooLong() {
         final String name = "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww.example.com";
-        TestResult result = tester.sendQuery("8.8.8.8", name);
+        TestResult result = tester.sendQuery("8.8.8.8", false, name);
         assertTrue("Error flag not set", result.fail);
         assertEquals("Name part exceeding 63 chars not detected", "Invalid query name", result.error);
         assertFalse("Lost flag set", result.lost);
@@ -83,7 +91,7 @@ public class TesterTest {
     public void queryNameTooLong() {
         String name = "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww.example.com";
         name = name + "." + name + "." + name + "." + name + "." + name + "." + name + "." + name;
-        TestResult result = tester.sendQuery("8.8.8.8", name);
+        TestResult result = tester.sendQuery("8.8.8.8", false, name);
         assertTrue("Error flag not set", result.fail);
         assertEquals("Name too long not detected", "Test query name too long", result.error);
         assertFalse("Lost flag set", result.lost);
@@ -91,14 +99,14 @@ public class TesterTest {
 
     @Test(timeout = 1000)
     public void queryServerNotFound() {
-        TestResult result = tester.sendQuery("X", "www.example.com");
+        TestResult result = tester.sendQuery("X", false, "www.example.com");
         assertTrue("Error flag not set", result.fail);
         assertFalse("Lost flag set", result.lost);
     }
 
     @Test(timeout = 5000)
     public void packetLost() {
-        TestResult result = tester.sendQuery("8.8.8.1", "www.example.com");
+        TestResult result = tester.sendQuery("8.8.8.1", false, "www.example.com");
         assertFalse("Error flag set", result.fail);
         assertTrue("Lost flag not set", result.lost);
     }
