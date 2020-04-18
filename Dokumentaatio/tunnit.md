@@ -9,4 +9,5 @@
 | 5.4. | 3 | Java.netiin perehtymistä |
 | 7.4. | 6 | Toimiva UDP-lähetys |
 | 14.4. | 7 | Testejä, toiminnan ja käyttöliittymän viilausta |
-| Yht | 25 | |
+| 17.4. | 2 | Rekursiovalinnan toteutus |
+| Yht | 27 | |
