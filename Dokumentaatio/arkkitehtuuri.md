@@ -12,4 +12,4 @@ _ui_ sisältää käyttöliittymän, _domain_ sovelluslogiikan ja tuleva _dao_ t
 
 ## Sovelluslogiikka
 
-![Sekvenssi]("https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/sekvenssi.png)
+![Sekvenssi](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/sekvenssi.png)
