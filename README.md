@@ -6,6 +6,8 @@ Sovellus testaa halutun DNS-palvelimen vasteaikaa. Käyttäjältä kysytään DN
 
 [Vaatimusmäärittelyt](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/vaatimukset.md)
 
+[Arkkitehtuuri](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/arkkitehtuuri.md)
+
 [Tuntikirjanpito](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/tunnit.md)
 
 ## Komentorivitoiminnot

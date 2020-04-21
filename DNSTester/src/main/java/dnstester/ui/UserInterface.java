@@ -40,8 +40,8 @@ public class UserInterface extends Application {
     }
 
     private void buttonPress(String server, boolean recursive, String name, Label label) {
+        TestResult result;
         Tester tester = new Tester();
-        TestResult result = new TestResult();
         if (server.length() > 0 && name.length() > 0) {
             result = tester.sendQuery(server, recursive, name);
             if (result.fail) {
