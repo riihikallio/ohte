@@ -12,4 +12,6 @@ _ui_ sisältää käyttöliittymän, _domain_ sovelluslogiikan ja tuleva _dao_ t
 
 ## Sovelluslogiikka
 
+![Luokat](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/luokat.png)
+
 ![Sekvenssi](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/sekvenssi.png)

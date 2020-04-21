@@ -10,4 +10,5 @@
 | 7.4. | 6 | Toimiva UDP-lähetys |
 | 14.4. | 7 | Testejä, toiminnan ja käyttöliittymän viilausta |
 | 17.4. | 2 | Rekursiovalinnan toteutus |
-| Yht | 27 | |
+| 21.4. | 3 | Stilisointia, dokumentaatiota |
+| Yht | 30 | |

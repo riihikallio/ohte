@@ -28,6 +28,8 @@ Testit suoritetaan komennolla
 mvn test
 ```
 
+Testit lähettävät DNS-kyselyjä Googlen palvelimelle, joten testien läpimenoa varten koneella pitää olla Internet-yhteys.
+
 Testikattavuusraportti luodaan komennolla
 
 ```bash
@@ -65,3 +67,5 @@ Tiedostoon [checkstyle.xml](https://github.com/riihikallio/ohte/blob/master/chec
 ```
 
 Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto _target/site/checkstyle.html_
+
+Tällä hetkellä siellä on yksi virhe: Tester.sendQuery on liian pitkä. Sen voisi pilkkoa alimetodeiksi, mutta samalla ohjelmalogiikka monimutkaistuisi.
