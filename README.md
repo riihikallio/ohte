@@ -20,20 +20,48 @@ Sovelluksen voi käynnistää komennolla
 mvn compile exec:java -Dexec.mainClass=dnstester.Main
 ```
 
-### Testit
+### Testaus
 
-Testit voi suorittaa komennolla
+Testit suoritetaan komennolla
 
 ```bash
 mvn test
 ```
 
-Testejä ei vielä ole, koska ei ole sovelluslogiikkaa :(
-
-<!-- Testikattavuusraportti luodaan komennolla
+Testikattavuusraportti luodaan komennolla
 
 ```bash
-mvn jacoco:report
+mvn test jacoco:report
 ```
 
-Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/site/jacoco/index.html -->
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
+
+### Suoritettavan jarin generointi
+
+Komento
+
+```bash
+mvn package
+```
+
+generoi hakemistoon _target_ suoritettavan jar-tiedoston _DNSTester-1.0-SNAPSHOT.jar_
+
+<!-- ### JavaDoc
+
+JavaDoc generoidaan komennolla
+
+```bash
+mvn javadoc:javadoc
+```
+
+JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_ -->
+
+### Checkstyle
+
+Tiedostoon [checkstyle.xml](https://github.com/riihikallio/ohte/blob/master/checkstyle.xml) määrittelemät tarkistukset suoritetaan komennolla
+
+```bash
+ mvn jxr:jxr checkstyle:checkstyle
+```
+
+Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto _target/site/checkstyle.html_
