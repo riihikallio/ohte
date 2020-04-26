@@ -12,7 +12,15 @@ _ui_ sisältää käyttöliittymän, _domain_ sovelluslogiikan ja tuleva _dao_ t
 
 ## Sovelluslogiikka
 
+### Luokkakaavio
+
+Luokkarakenne on hyvin yksinkertainen. TestResult-luokka on vain tietue ilman toiminnallisuutta, joten sen kentät ovat suoraan julkisia eikä niille ole tehty gettereitä ja settereitä.
+
 ![Luokat](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/luokat.png)
+
+### Sekvenssikaavio
+
+Kun käyttäjä painaa Test-painiketta suoritetaan testikysely. Itse paketin lähetystä ja vastaanottoa ei ole tässä kuvattu.
 
 ![Sekvenssi](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/sekvenssi.png)
 
