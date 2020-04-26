@@ -12,9 +12,9 @@ _ui_ sisältää käyttöliittymän, _domain_ sovelluslogiikan ja tuleva _dao_ t
 
 ## Sovelluslogiikka
 
-![Luokat](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/luokat.png)
+![Luokat](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/luokat.png){ width=50% }
 
-![Sekvenssi](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/sekvenssi.png)
+![Sekvenssi](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/sekvenssi.png){ width=50% }
 
 ### DNS UDP -paketti
 
@@ -22,4 +22,4 @@ Alla on DNS-UDP-kyselypaketin sisältökuvaus. Tässä sovelluksessa vain luodaa
 
 Haettavan nimen tallennus poikkeaa Javan Stringin tallennuksesta, joten iso osa DNSTester-luokan sendQuery-metodista käsittelee sitä.
 
-![Paketti](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/paketti.png)
+![Paketti](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/paketti.png){ width=125% }
