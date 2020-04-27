@@ -11,4 +11,5 @@
 | 14.4. | 7 | Testejä, toiminnan ja käyttöliittymän viilausta |
 | 17.4. | 2 | Rekursiovalinnan toteutus |
 | 21.4. | 3 | Stilisointia, dokumentaatiota |
-| Yht | 30 | |
+| 26.4. | 2 | Dokumentaatiota |
+| Yht | 32 | |
