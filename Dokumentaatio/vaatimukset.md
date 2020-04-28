@@ -19,6 +19,6 @@ Vasteajat voivat vaihdella paljonkin riippuen siitä, onko tieto jo haettuna tes
 ## Jatkokehitys
 
 - Valinta rekursiivista kyselyä varten (Tehty)
-- Vastauksen tiedot tallennetaan tietokantaan (Aloitettu)
+- Vastauksen tiedot tallennetaan tietokantaan (Tehty)
 - Saman palvelimen aiemmat tulokset näytetään vertailua varten
 - Jonkinlainen graafinen esitys

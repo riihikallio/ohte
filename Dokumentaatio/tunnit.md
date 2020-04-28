@@ -14,4 +14,5 @@
 | 26.4. | 2 | Dokumentaatiota |
 | 28.4. | 3 | DAO-yritystä |
 | 28.4. | 2 | JavaDocia ja dokumentaatiota |
-| Yht | 37 | |
+| 28.4. | 3 | DAO-tallennus |
+| Yht | 40 | |
