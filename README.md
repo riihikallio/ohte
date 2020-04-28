@@ -14,7 +14,7 @@ Sovellus testaa halutun DNS-palvelimen vasteaikaa. Käyttäjältä kysytään DN
 
 ## Releaset
 
-[Viikko 6](https://github.com/riihikallio/ohte/releases/tag/v1.2)
+[Viikko 6](https://github.com/riihikallio/ohte/releases/tag/v1.3)
 
 ## Komentorivitoiminnot
 
