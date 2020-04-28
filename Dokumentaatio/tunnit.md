@@ -13,6 +13,6 @@
 | 21.4. | 3 | Stilisointia, dokumentaatiota |
 | 26.4. | 2 | Dokumentaatiota |
 | 28.4. | 3 | DAO-yritystä |
-| 28.4. | 2 | JavaDocia ja dokumentaatiota |
-| 28.4. | 3 | DAO-tallennus |
+|  | 2 | JavaDocia ja dokumentaatiota |
+|  | 3 | DAO-tallennus |
 | Yht | 40 | |
