@@ -25,6 +25,7 @@ hs_err_pid*
 # Local edits
 .DS_Store
 .graffle
+history.db
 /laskarit/viikko2/Maksukortti/nbproject/
 /laskarit/viikko2/Maksukortti/target/
 /laskarit/viikko2/Unicafe/target

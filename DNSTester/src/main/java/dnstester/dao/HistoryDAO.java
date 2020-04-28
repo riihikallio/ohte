@@ -1,3 +1,5 @@
+package dnstester.dao;
+
 import dnstester.domain.TestResult;
 import java.sql.*;
 import java.util.*;

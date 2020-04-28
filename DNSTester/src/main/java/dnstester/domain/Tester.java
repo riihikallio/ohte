@@ -1,5 +1,7 @@
 package dnstester.domain;
 
+import dnstester.dao.DBHistoryDAO;
+import dnstester.dao.HistoryDAO;
 import java.net.*;
 
 /**
@@ -79,7 +81,10 @@ public class Tester {
             result.fail = true;
             result.error = e.getMessage();
         }
-
+        
+        if (!result.fail) {
+            HistoryDAO history = new DBHistoryDAO();
+        }
         return result;
     }
 
