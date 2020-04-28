@@ -84,6 +84,8 @@ public class Tester {
         
         if (!result.fail) {
             HistoryDAO history = new DBHistoryDAO();
+            result.recursive = recursive;
+            history.add(server, result);
         }
         return result;
     }

@@ -5,6 +5,6 @@ import java.sql.*;
 import java.util.*;
 
 public interface HistoryDAO<TestResult, String> {
-    void add(TestResult result) throws SQLException;
-    List<TestResult> list(String server) throws SQLException;
+    void add(String server, TestResult result);
+    List<TestResult> list(String server);
 }

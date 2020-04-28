@@ -40,12 +40,25 @@ public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
     }
 
     @Override
-    public void add(TestResult result) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void add(String server, TestResult result) {
+        try {
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO history"
+                    + " (Server, Result, Lost, Recursive)"
+                    + " VALUES (?, ?, ?, ?)");
+            stmt.setString(1, server);
+            stmt.setLong(2, result.time);
+            stmt.setInt(3, result.lost ? 1 : 0);
+            stmt.setInt(4, result.recursive ? 1 : 0);
+
+            stmt.executeUpdate();
+            stmt.close();
+        } catch (Exception e) {
+            System.out.println("Error writing database: " + e.getMessage());
+        }
     }
 
     @Override
-    public List<TestResult> list(String server) throws SQLException {
+    public List<TestResult> list(String server) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
