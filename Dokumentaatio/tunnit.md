@@ -12,4 +12,6 @@
 | 17.4. | 2 | Rekursiovalinnan toteutus |
 | 21.4. | 3 | Stilisointia, dokumentaatiota |
 | 26.4. | 2 | Dokumentaatiota |
-| Yht | 32 | |
+| 28.4. | 3 | DAO-yritystä |
+| 28.4. | 2 | JavaDocia ja dokumentaatiota |
+| Yht | 37 | |

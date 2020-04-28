@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus testaa halutun DNS-palvelimen vasteaikaa. Käyttäjältä kysytään DNS-palvelmen IP-osoite ja selvitettävä domain nimi. Sovellus lähettää oikeanlaisen UDP-paketin palvelimelle ja kellottaa vastausajan. Testiajankohta, palvelin, nimi ja vasteaika tallennetaan tietokantaan myöhempää vertailua varten.
+Sovellus testaa halutun DNS-palvelimen vasteaikaa. Käyttäjältä kysytään DNS-palvelmen IP-osoite ja selvitettävä domain nimi. Sovellus lähettää oikeanlaisen UDP-paketin palvelimelle ja kellottaa vastausajan. Testiajankohta, palvelin ja vasteaika tallennetaan tietokantaan myöhempää vertailua varten.
 
 Vasteajat voivat vaihdella paljonkin riippuen siitä, onko tieto jo haettuna testattavalla DNS-palvelimella vai haetaanko tieto rekursiivisesti muualta. Ilman rekursiota saadaan vastaus ilman taustahakuja.
 
@@ -19,7 +19,6 @@ Vasteajat voivat vaihdella paljonkin riippuen siitä, onko tieto jo haettuna tes
 ## Jatkokehitys
 
 - Valinta rekursiivista kyselyä varten (Tehty)
-- Vastauksen tiedot tallennetaan tietokantaan
+- Vastauksen tiedot tallennetaan tietokantaan (Aloitettu)
 - Saman palvelimen aiemmat tulokset näytetään vertailua varten
-- Yleinen vertailu eri palvelinten kesken
 - Jonkinlainen graafinen esitys

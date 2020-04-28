@@ -1,14 +1,20 @@
 # DNS Tester
 
-Sovellus testaa halutun DNS-palvelimen vasteaikaa. Käyttäjältä kysytään DNS-palvelmen IP-osoite ja selvitettävä domain nimi. Sovellus lähettää oikeanlaisen UDP-paketin palvelimelle ja kellottaa vastausajan. Testiajankohta, palvelin, nimi, vastaus ja vasteaika tallennetaan tietokantaan myöhempää vertailua varten.
+Sovellus testaa halutun DNS-palvelimen vasteaikaa. Käyttäjältä kysytään DNS-palvelmen IP-osoite ja selvitettävä domain nimi. Sovellus lähettää oikeanlaisen UDP-paketin palvelimelle ja kellottaa vastausajan. Testiajankohta, palvelin, ja vasteaika tallennetaan tietokantaan myöhempää vertailua varten.
 
 ## Dokumentaatio
+
+[Käyttohje](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/ohje.md)
 
 [Vaatimusmäärittelyt](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/vaatimukset.md)
 
 [Arkkitehtuuri](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/arkkitehtuuri.md)
 
 [Tuntikirjanpito](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/tunnit.md)
+
+## Releaset
+
+[Viikko 6](https://github.com/riihikallio/ohte/releases/tag/v1.2)
 
 ## Komentorivitoiminnot
 
@@ -48,7 +54,7 @@ mvn package
 
 generoi hakemistoon _target_ suoritettavan jar-tiedoston _DNSTester-1.0-SNAPSHOT.jar_
 
-<!-- ### JavaDoc
+### JavaDoc
 
 JavaDoc generoidaan komennolla
 
@@ -56,7 +62,7 @@ JavaDoc generoidaan komennolla
 mvn javadoc:javadoc
 ```
 
-JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_ -->
+JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_
 
 ### Checkstyle
 
