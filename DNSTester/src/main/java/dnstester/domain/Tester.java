@@ -2,6 +2,9 @@ package dnstester.domain;
 
 import java.net.*;
 
+/**
+ * The actual tester class
+ */
 public class Tester {
 
     private InetAddress address;
@@ -9,6 +12,15 @@ public class Tester {
     private byte[] buf;
     private TestResult result;
 
+    /**
+     * The method to run the test
+     *
+     * @param server Server to test
+     * @param recursive Recursive query
+     * @param name DNS name to use for testing
+     *
+     * @return TestResult A record containing the result
+     */
     public TestResult sendQuery(String server, boolean recursive, String name) {
         result = new TestResult();
         buf = new byte[512];

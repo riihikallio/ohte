@@ -11,8 +11,16 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+/**
+ * Application user interface class class
+ */
 public class UserInterface extends Application {
 
+    /**
+     * Start override for JavaFX
+     *
+     * @param stage JaveFX stage
+     */
     @Override
     public void start(Stage stage) {
         stage.setTitle("DNS Tester");
@@ -39,6 +47,14 @@ public class UserInterface extends Application {
         stage.show();
     }
 
+    /**
+     * Private function to handle the Test button
+     *
+     * @param server Server to test
+     * @param recursive Boolean option for recursion
+     * @param name DNS name to use for test
+     * @param label The label to use for the result
+     */
     private void buttonPress(String server, boolean recursive, String name, Label label) {
         Tester tester = new Tester();
         if (server.length() > 0 && name.length() > 0) {
@@ -56,6 +72,11 @@ public class UserInterface extends Application {
         }
     }
 
+    /**
+     * Actual Main class to launch the JavaFX application
+     *
+     * @param args Command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
