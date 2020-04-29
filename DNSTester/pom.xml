@@ -46,7 +46,7 @@
                 <configuration>
                     <excludes>
                         <exclude>dnstester/ui/**/*</exclude>
-                        <exclude>dnstester/*</exclude>
+                        <exclude>dnstester/Main.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>
