@@ -82,7 +82,7 @@ public class Tester {
             result.fail = true;
             result.error = e.getMessage();
         } finally {
-            if (!(socket == null)) {
+            if (socket != null) {
                 socket.close();
             }
         }
