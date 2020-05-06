@@ -61,10 +61,11 @@ public class Tester {
         buf[ptr + 2] = 1;  // QType A record
         buf[ptr + 4] = 1;  // QClass Internet Address
 
+        DatagramSocket socket = null;
         try {
             // Send query
             address = InetAddress.getByName(server);
-            DatagramSocket socket = new DatagramSocket();
+            socket = new DatagramSocket();
             DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 53);
             long start = System.nanoTime();
             socket.send(packet);
@@ -80,8 +81,12 @@ public class Tester {
         } catch (Exception e) {
             result.fail = true;
             result.error = e.getMessage();
+        } finally {
+            if (!(socket == null)) {
+                socket.close();
+            }
         }
-        
+
         if (!result.fail) {
             HistoryDAO history = new DBHistoryDAO();
             result.recursive = recursive;
