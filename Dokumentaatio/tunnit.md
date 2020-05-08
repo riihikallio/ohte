@@ -19,4 +19,5 @@
 | 7.5. | 3 | Historia-ikkuna |
 | 8.5. | 4 | TableView-toimii |
 |  | 2 | Dokumentaatiota |
-| Yht | 52 | |
+|  | 7 | Testejä ja viimeistelyä |
+| Yht | 59 | |

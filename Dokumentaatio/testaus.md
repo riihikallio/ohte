@@ -8,9 +8,9 @@ Testit tekevät todellisia DNS-kyselyjä ja edellyttävät siksi toimivaa verkko
 
 ### Sovelluslogiikka
 
-Suurin osa testeistä on [TesterTest-paketissa](https://github.com/riihikallio/ohte/blob/master/DNSTester/src/test/java/dnstester/domain/TesterTest.java). Se pyrkii testaamaan sovelluksen varsinaista toimintaa eri vaihtoehdoilla ja simuloimaan tyypillisiä virhetilanteita. Niiden osalta testikattavuus on täydet 100% eli kaikki catch-lohkotkin on saatu testattua.
+Suurin osa testeistä on [TesterTest](https://github.com/riihikallio/ohte/blob/master/DNSTester/src/test/java/dnstester/domain/TesterTest.java)-paketissa. Se pyrkii testaamaan sovelluksen varsinaista toimintaa eri vaihtoehdoilla ja simuloimaan tyypillisiä virhetilanteita. Niiden osalta testikattavuus on täydet 100% eli kaikki catch-lohkotkin on saatu testattua.
 
-Testit käyttävät normaalia tietokantaa. Testeissä tietokantaan tallettuvat tulokset poistetaan testiajon päätyttyä @AfterClass-metodilla. Tämä oli lopulta yksinkertaisempi ratkaisu kuin luoda rinnakkainen toteutus. Samalla se mahdollistaa todellisen integraatiotestauksen, jota edustaa testi _historyGrows_.
+Testit käyttävät normaalia tietokantaa. Testeissä tietokantaan tallettuvat tulokset poistetaan testiajon päätyttyä @AfterClass-metodilla. Tämä oli lopulta yksinkertaisempi ratkaisu kuin luoda rinnakkainen tallennustoteutus. Samalla se mahdollistaa todellisen integraatiotestauksen, jota edustaa testi _historyGrows_.
 
 ### DAO-yksikkötestaus
 
@@ -20,11 +20,11 @@ Testit käyttävät normaalia tietokantaa. Testeissä tietokantaan tallettuvat t
 
 ### Testauskattavuus
 
-Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen rivikattavuus on 91% ja haarautumakattavuus 100%
+Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen rivikattavuus on 85% ja haarautumakattavuus 100%
 
 ![Kattavuus](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/testaus.png)
 
-Testaamatta jäivät catch-lohkot, jotka liittyivät verkko-, tietokanta- ja levyjärjestelmävirheisiin.
+Testaamatta jäivät catch-lohkot, jotka liittyivät tietokanta- ja levyjärjestelmävirheisiin.
 
 ## Järjestelmätestaus
 
