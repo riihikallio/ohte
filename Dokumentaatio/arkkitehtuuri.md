@@ -32,6 +32,6 @@ Kun käyttäjä painaa Test-painiketta suoritetaan testikysely. Itse paketin lä
 
 Alla on DNS-UDP-kyselypaketin sisältökuvaus. Tässä sovelluksessa vain luodaan yksinkertainen DNS-kysely ja kellotetaan vastaukseen kuluva aika. Vastausta ei tulkita sen kummemmin. Kysely-paketin sisällöstä suurin osa on kiinteitä kenttiä, joista esimerkki alinna. Vihreällä taustalla on merkitty tässä sovelluksessa käytetyt kentät. Ensin on yhden bitin Recursion Desired -kenttä (RD), jolla voi pyytää palvelinta selvittämään lopullisen IP-osoitteen asettamalla sen arvoksi 1. Itse haettava nimi tallennetaan QName-kenttään ASCII-tavuina niin, että jokaisen nimen osan edessä on osan pituus (enintään 63 merkkiä) ja lopuksi 0. QName-kentän pituus on siis muuttuva, muut kentät ovat vakiomittaisia.
 
-Haettavan nimen tallennus poikkeaa Javan Stringin tallennuksesta, joten iso osa DNSTester-luokan sendQuery-metodista käsittelee nimen tallennusta. Metodi on hieman pitkä, mutta sen pilkkominen olisi tehnyt koodista monimutkaisemman.
+Haettavan nimen tallennus poikkeaa Javan Stringin tallennuksesta, joten iso osa DNSTester-luokasta on UDP-paketin luomista setupBuf-metodissa. Se ja udpEchange on hieman ylipitkiä, mutta niiden pilkkominen olisi monimutkaistanut koodia entisestään.
 
 ![Paketti](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/paketti.png)

@@ -49,7 +49,7 @@ public class TesterTest {
     @Test(timeout = 5000)
     public void testerSuccess() {
         TestResult result = tester.sendQuery("8.8.8.8", false, "www.example.com");
-        assertTrue("Zero time elapsed", result.time > 0);
+        assertTrue("Zero time elapsed", result.duration > 0);
         assertFalse("Error flag set", result.fail);
         assertFalse("Lost flag set", result.lost);
     }
@@ -57,7 +57,7 @@ public class TesterTest {
     @Test(timeout = 5000)
     public void recursiveSuccess() {
         TestResult result = tester.sendQuery("8.8.8.8", true, "www.example.com");
-        assertTrue("Zero time elapsed", result.time > 0);
+        assertTrue("Zero time elapsed", result.duration > 0);
         assertFalse("Error flag set", result.fail);
         assertFalse("Lost flag set", result.lost);
     }
