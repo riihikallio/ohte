@@ -10,6 +10,8 @@ Sovellus testaa halutun DNS-palvelimen vasteaikaa. Käyttäjältä kysytään DN
 
 [Arkkitehtuuri](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/testaus.md)
+
 [Tuntikirjanpito](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/tunnit.md)
 
 ## Releaset
