@@ -4,7 +4,7 @@
 
 Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne on seuraava:
 
-![Paketointi](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/paketointi.png)
+![Paketointi](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/paketointi.png)
 
 Ylin kerros on vain tekninen kuori, jolla saadaan JAR-paketointi toimimaan. Toiminnallisesti kerroksia on kolme.
 
@@ -18,13 +18,15 @@ Perustestauksen luokka on hyvin yksinkertainen. TestResult-luokka on vain tietue
 
 Historia-ikkunaa varten on oma luokkansa, joka hakee suoraan HistoryDAO:lta listan HistoryRow-olioita. JavaFX:n TableView-integraatiota varten HistoryRow:ssa on täydet getterit ja setterit.
 
-![Luokat](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/luokat.png)
+![Luokat](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/luokat.png)
+
+Värit vastaavat Rakenne-kohdan pakkausrakennetta.
 
 ### Toiminta
 
 Kun käyttäjä painaa Test-painiketta suoritetaan testikysely. Itse paketin lähetystä ja vastaanottoa ei ole tässä kuvattu.
 
-![Sekvenssi](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/sekvenssi.png)
+![Sekvenssi](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/sekvenssi.png)
 
 ### DNS UDP -paketti
 
@@ -32,4 +34,4 @@ Alla on DNS-UDP-kyselypaketin sisältökuvaus. Tässä sovelluksessa vain luodaa
 
 Haettavan nimen tallennus poikkeaa Javan Stringin tallennuksesta, joten iso osa DNSTester-luokan sendQuery-metodista käsittelee nimen tallennusta. Metodi on hieman pitkä, mutta sen pilkkominen olisi tehnyt koodista monimutkaisemman.
 
-![Paketti](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/paketti.png)
+![Paketti](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/paketti.png)

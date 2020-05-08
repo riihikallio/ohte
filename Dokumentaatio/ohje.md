@@ -8,7 +8,7 @@ Domain Name -kenttään syötetään haettava nimi. Nimen pitää olla kelvollin
 
 Paina Test-painiketta, niin sen alle tulee vasteaika millisekunneissa.
 
-![Näyttö](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/mainscreen.png)
+![Näyttö](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/mainscreen.png)
 
 ## Historia
 
@@ -16,4 +16,4 @@ Painamalla Show History aukeaa palvelimen siihenastinen testihistoria omaan ikku
 
 Punainen rasti tarkoittaa puuttuvaa vastausta. Pukki R-sarakkeessa tarkoittaa rekursiivista kyselyä.
 
-![Historia](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/history.png)
+![Historia](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/history.png)
