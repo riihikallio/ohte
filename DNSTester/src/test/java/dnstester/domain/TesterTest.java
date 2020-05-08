@@ -5,6 +5,8 @@
  */
 package dnstester.domain;
 
+import dnstester.dao.DBHistoryDAO;
+import java.sql.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -19,17 +21,67 @@ import static org.junit.Assert.*;
  */
 public class TesterTest {
 
-    Tester tester;
+    private Tester tester;
+    static private String startTime;
 
     public TesterTest() {
     }
 
+    // Record the time test run was started
     @BeforeClass
     public static void setUpClass() {
+        Connection conn = null;
+        Statement stmt;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlite:history.db");
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT datetime('now','localtime');");
+            rs.next();
+            startTime = rs.getString(1);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 
+    // Delete records created during testing
     @AfterClass
     public static void tearDownClass() {
+        Connection conn = null;
+        Statement stmt;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlite:history.db");
+            stmt = conn.createStatement();
+
+            // Record the test run end time
+            ResultSet rs = stmt.executeQuery("SELECT datetime('now','localtime');");
+            rs.next();
+            String endTime = rs.getString(1);
+
+            // Delete records
+            PreparedStatement pStmt = conn.prepareStatement("DELETE FROM history "
+                    + "WHERE Timestamp BETWEEN ? AND ?");
+            pStmt.setString(1, startTime);
+            pStmt.setString(2, endTime);
+            pStmt.execute();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 
     @Before
@@ -60,6 +112,14 @@ public class TesterTest {
         assertTrue("Zero time elapsed", result.duration > 0);
         assertFalse("Error flag set", result.fail);
         assertFalse("Lost flag set", result.lost);
+    }
+
+    @Test
+    public void historyGrows() {
+        DBHistoryDAO db = new DBHistoryDAO();
+        int count = db.list("8.8.4.4").size();
+        TestResult result = tester.sendQuery("8.8.4.4", false, "www.example.com");
+        assertEquals("Test not recorded in historyDB", count + 1, db.list("8.8.4.4").size());
     }
 
     @Test(timeout = 1000)
@@ -99,7 +159,7 @@ public class TesterTest {
 
     @Test(timeout = 1000)
     public void queryServerNotFound() {
-        TestResult result = tester.sendQuery("X", false, "www.example.com");
+        TestResult result = tester.sendQuery("nonexisting", false, "www.example.com");
         assertTrue("Error flag not set", result.fail);
         assertFalse("Lost flag set", result.lost);
     }
