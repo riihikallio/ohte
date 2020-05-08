@@ -26,4 +26,4 @@ Vasteajat voivat vaihdella paljonkin riippuen siitä, onko tieto jo haettuna tes
 
 - Jonkinlainen graafinen esitys
 
-Histogrammi toimisi parhaiten ainakin yhden palvelimen esittämiseen. Pitäisi vielä ratkaista, miten kadonneet paketit saisi mukaan histogrammiin. Toinen ratkaistava ongelma on, miten yhdistää rekursiiviset ja ei-rekursiiviset samaan kuvaan vai pitäisikö niistä tehdä eri kuvat.
+Histogrammi toimisi parhaiten ainakin yhden palvelimen esittämiseen. Pitäisi vielä ratkaista, miten kadonneet paketit saisi luontevasti mukaan histogrammiin. Toinen ratkaistava ongelma on, miten yhdistää rekursiiviset ja ei-rekursiiviset kyselyt samaan kuvaan vai pitäisikö niistä tehdä eri kuvat.
