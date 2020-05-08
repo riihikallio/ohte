@@ -8,7 +8,7 @@ Domain Name -kenttään syötetään haettava nimi. Nimen pitää olla kelvollin
 
 Paina Test-painiketta, niin sen alle tulee vasteaika millisekunneissa.
 
-![Näyttö](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/screenshot.png)
+![Näyttö](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/mainscreen.png)
 
 ## Historia
 
