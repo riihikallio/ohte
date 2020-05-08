@@ -8,15 +8,15 @@ Testit tekevät todellisia DNS-kyselyjä ja edellyttävät siksi toimivaa verkko
 
 ### Sovelluslogiikka
 
-Suurin osa testeistä on TesterTest-paketissa. Se pyrkii testaamaan sovelluksen varsinaista toimintaa eri vaihtoehdoilla ja simuloimaan tyypillisiä virhetilanteita. Niiden osalta testikattavuus on täydet 100% eli kaikki catch-lohkotkin on saatu testattua.
+Suurin osa testeistä on [TesterTest-paketissa](https://github.com/riihikallio/ohte/blob/master/DNSTester/src/test/java/dnstester/domain/TesterTest.java). Se pyrkii testaamaan sovelluksen varsinaista toimintaa eri vaihtoehdoilla ja simuloimaan tyypillisiä virhetilanteita. Niiden osalta testikattavuus on täydet 100% eli kaikki catch-lohkotkin on saatu testattua.
 
 Testit käyttävät normaalia tietokantaa. Testeissä tietokantaan tallettuvat tulokset poistetaan testiajon päätyttyä @AfterClass-metodilla. Tämä oli lopulta yksinkertaisempi ratkaisu kuin luoda rinnakkainen toteutus. Samalla se mahdollistaa todellisen integraatiotestauksen, jota edustaa testi _historyGrows_.
 
 ### DAO-yksikkötestaus
 
-DBHistoryDAOTest tallentaa normaaliin tietokantaan, mutta testeissä käytetään aikarajan ylittävää vasteaikaa, mikä tekee rivien poistamisesta yksinkertaista @AfterClass-metodilla.
+[DBHistoryDAOTest](https://github.com/riihikallio/ohte/blob/master/DNSTester/src/test/java/dnstester/dao/DBHistoryDAOTest.java) tallentaa normaaliin tietokantaan, mutta testeissä käytetään aikarajan ylittävää vasteaikaa, mikä tekee rivien poistamisesta yksinkertaista @AfterClass-metodilla.
 
-HistoryRowTest testaa vain settereitä ja gettereitä, mutta testauskattavuus näytti huonolta ilman niiden testausta.
+[HistoryRowTest](https://github.com/riihikallio/ohte/blob/master/DNSTester/src/test/java/dnstester/dao/HistoryRowTest.java) testaa vain settereitä ja gettereitä, mutta testauskattavuus näytti huonolta ilman niiden testausta.
 
 ### Testauskattavuus
 
