@@ -6,7 +6,7 @@ Jos haluat testata koko nimiselvityksen, niin rastita Recursive query -valinta. 
 
 Domain Name -kenttään syötetään haettava nimi. Nimen pitää olla kelvollinen DNS-nimi, eli ASCII-merkkejä, osat enintään 63 merkkiä pitkiä ja pistein erotettuina. Kokonaispituus ei saa ylittää 494 merkkiä. Muuten nimellä ei ole merkitystä.
 
-Paina Test-painiketta, niin sen alle tulee vasteaika millisekunneissa.
+Paina Test-painiketta tai Enter-näppäintä, niin painikkeen alle tulee vasteaika millisekunneissa.
 
 ![Näyttö](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/mainscreen.png)
 
