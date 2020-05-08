@@ -16,4 +16,4 @@ Painamalla Show History aukeaa palvelimen siihenastinen testihistoria omaan ikku
 
 Punainen rasti tarkoittaa puuttuvaa vastausta. Pukki R-sarakkeessa tarkoittaa rekursiivista kyselyä.
 
-![Historia](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/historia.png)
+![Historia](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/history.png)
