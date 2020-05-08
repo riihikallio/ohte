@@ -4,6 +4,7 @@ import dnstester.domain.TestResult;
 import java.sql.*;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import javafx.scene.control.Alert;
 
 /**
  * A SQLite implementation of HistoryDAO
@@ -28,18 +29,20 @@ public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
                         + "Timestamp TEXT DEFAULT (datetime('now','localtime')), "
                         + "Recursive INTEGER);");
             } catch (SQLException e) {
-                System.out.println("Error creating table: " + e.getMessage());
+                Alert a = new Alert(Alert.AlertType.ERROR, "Error creating table: " + e.getMessage());
+                a.show();
             } finally {
                 stmt.close();
             }
         } catch (Exception e) {
-            System.out.println("Error opening database: " + e.getMessage());
+            Alert a = new Alert(Alert.AlertType.ERROR, "Error opening database: " + e.getMessage());
+            a.show();
         }
     }
 
     /**
      * Log a test result in history database
-     * 
+     *
      * @param server The server that was tested
      * @param duration The response time in milliseconds
      * @param lost Was the query lost?
@@ -59,7 +62,8 @@ public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
             stmt.executeUpdate();
             stmt.close();
         } catch (Exception e) {
-            System.out.println("Error writing database: " + e.getMessage());
+            Alert a = new Alert(Alert.AlertType.ERROR, "Error writing database: " + e.getMessage());
+            a.show();
         }
     }
 
@@ -86,7 +90,8 @@ public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
             }
             stmt.close();
         } catch (Exception e) {
-            System.out.println("Error reading database: " + e.getMessage());
+            Alert a = new Alert(Alert.AlertType.ERROR, "Error reading database: " + e.getMessage());
+            a.show();
         }
         return result;
     }
