@@ -15,17 +15,13 @@ public class Tester {
     private TestResult result;
 
     /**
-     * The method to run the test
+     * Set up the UDP packet in the buffer
      *
-     * @param server Server to test
-     * @param recursive Recursive query
-     * @param name DNS name to use for testing
-     *
-     * @return TestResult A record containing the result
+     * @param name The name to query
+     * @param recursive Is the query recursive?
+     * @return True if success, otherwise TestResult will contain the error
      */
-    public TestResult sendQuery(String server, boolean recursive, String name) {
-        result = new TestResult();
-        buf = new byte[512];
+    private boolean setupBuf(String name, boolean recursive) {
         // Fixed fields at the beginning
         buf[1] = 1;  // Query ID
         buf[2] = recursive ? (byte) 1 : (byte) 0;  // Recursion Desired
@@ -38,7 +34,7 @@ public class Tester {
             if (buf[ptr] == 0 || buf[ptr] > 63) {
                 result.fail = true;
                 result.error = "Invalid query name";
-                return result;
+                return false;
             }
             ptr++;
             for (char chr : part.toCharArray()) {
@@ -47,24 +43,33 @@ public class Tester {
                 if (ptr >= 506) {  // Do not overrun the buffer
                     result.fail = true;
                     result.error = "Test query name too long";
-                    return result;
+                    return false;
                 }
             }
         }
         if (ptr == 12) {
             result.fail = true;
             result.error = "Empty query name";
-            return result;
+            return false;
         }
         // Fields after the queried name
         buf[ptr] = 0;      // End of query string marker
         buf[ptr + 2] = 1;  // QType A record
         buf[ptr + 4] = 1;  // QClass Internet Address
+        return true;
+    }
 
+    /**
+     * Send query and wait for the response
+     * 
+     * @param server The target DNS server
+     */
+    private void udpExchange(String server) {
         DatagramSocket socket = null;
         try {
-            // Send query
             address = InetAddress.getByName(server);
+            
+            // Send query
             socket = new DatagramSocket();
             DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 53);
             long start = System.nanoTime();
@@ -86,6 +91,26 @@ public class Tester {
                 socket.close();
             }
         }
+    }
+
+    /**
+     * Run the test
+     *
+     * @param server Server to test
+     * @param recursive Recursive query
+     * @param name DNS name to use for testing
+     *
+     * @return TestResult A record containing the result
+     */
+    public TestResult sendQuery(String server, boolean recursive, String name) {
+        result = new TestResult();
+        buf = new byte[512];
+
+        if (!setupBuf(name, recursive)) {
+            return result;
+        }
+
+        udpExchange(server);
 
         // Record result in history database
         if (!result.fail) {
@@ -94,5 +119,4 @@ public class Tester {
         }
         return result;
     }
-
 }
