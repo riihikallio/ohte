@@ -16,7 +16,7 @@ _ui_ sisältää käyttöliittymän, _domain_ sovelluslogiikan ja _dao_ testitul
 
 Perustestauksen luokka on hyvin yksinkertainen. TestResult-luokka on vain tietue ilman toiminnallisuutta, joten sen kentät ovat suoraan julkisia eikä niille ole tehty gettereitä ja settereitä.
 
-Historia-ikkunaa varten on oma luokkansa, joka hakee suoraan HistoryDAO:lta listan HistoryRow-olioita. JavaFX:n TableView-integraatiota varten HistoryRow:ssa on täydet getterit ja setterit. Samasta syystä list-metodi palauttaa ObservableArrayList:n.
+History-ikkunaa varten on oma luokkansa, joka hakee suoraan HistoryDAO:lta listan HistoryRow-olioita. JavaFX:n TableView-integraatiota varten HistoryRow:ssa on täydet getterit ja setterit. TableView'ta varten list-metodi myös palauttaa JavaFX:n ObservableArrayList:n.
 
 ![Luokat](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/luokat.png)
 
