@@ -1,5 +1,7 @@
 # Käyttöohje
 
+JAR-paketti käynnistyy komennolla _java -jar DNSTester.jar_.
+
 Syötä testattavan palvelimen nimi tai IP-osoite DNS Server -kenttään.
 
 Jos haluat testata koko nimiselvityksen, niin rastita Recursive query -valinta. Rekursiossa testattava palvelin kysyy tietoa edelleen muilta nimipalvelimilta, joten vasteaika kertoo koko DNS-järjestelmän nopeudesta. Ilman rekursiota saat testattua yhden palvelimen vasteaikaa erikseen.
