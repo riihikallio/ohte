@@ -16,9 +16,14 @@ Vasteajat voivat vaihdella paljonkin riippuen siitä, onko tieto jo haettuna tes
 - Vastauksen tiedot tulevat samaan ikkunaan (Tehty)
 - Aikakatkaisu siltä varalta, että vastausta ei tulekaan (Tehty)
 
-## Jatkokehitys
+## Toteutetut lisätoiminnot
 
 - Valinta rekursiivista kyselyä varten (Tehty)
 - Vastauksen tiedot tallennetaan tietokantaan (Tehty)
-- Saman palvelimen aiemmat tulokset näytetään vertailua varten
+- Saman palvelimen aiemmat tulokset näytetään vertailua varten (Tehty)
+
+## Jatkokehitys
+
 - Jonkinlainen graafinen esitys
+
+Histogrammi toimisi parhaiten ainakin yhden palvelimen esittämiseen. Pitäisi vielä ratkaista, miten kadonneet paketit saisi mukaan histogrammiin. Toinen ratkaistava ongelma on, miten yhdistää rekursiiviset ja ei-rekursiiviset samaan kuvaan vai pitäisikö niistä tehdä eri kuvat.

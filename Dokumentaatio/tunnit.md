@@ -15,4 +15,8 @@
 | 28.4. | 3 | DAO-yritystä |
 |  | 2 | JavaDocia ja dokumentaatiota |
 |  | 3 | DAO-tallennus |
-| Yht | 40 | |
+| 5.5. | 3 | DAO-historia |
+| 7.5. | 3 | Historia-ikkuna |
+| 8.5. | 4 | TableView-toimii |
+|  | 2 | Dokumentaatiota |
+| Yht | 52 | |
