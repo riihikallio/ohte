@@ -3,7 +3,6 @@ package dnstester.ui;
 import dnstester.domain.Tester;
 import dnstester.domain.TestResult;
 import javafx.application.Application;
-import javafx.beans.property.BooleanProperty;
 import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -12,12 +11,12 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 /**
- * Application user interface class class
+ * Application user interface class
  */
 public class UserInterface extends Application {
 
     /**
-     * Start override for JavaFX
+     * start override for JavaFX
      *
      * @param stage JaveFX stage
      */
@@ -25,7 +24,7 @@ public class UserInterface extends Application {
     public void start(Stage stage) {
         stage.setTitle("DNS Tester");
 
-        VBox layout = new VBox(5);
+        final VBox layout = new VBox(5);
         layout.setPadding(new Insets(10));
         layout.getChildren().add(new Label("DNS Server IP address:"));
         TextField server = new TextField("8.8.8.8");
@@ -36,12 +35,18 @@ public class UserInterface extends Application {
         TextField name = new TextField("www.example.com");
         layout.getChildren().add(name);
 
-        Button btn = new Button("Test");
+        Button tstBtn = new Button("Test");
+        tstBtn.setDefaultButton(true);
         Label timeLbl = new Label("Response time: ");
-        btn.setOnAction((e) -> buttonPress(server.getText(), recursive.selectedProperty().getValue(), name.getText(), timeLbl));
-        layout.getChildren().add(btn);
+        tstBtn.setOnAction((e) -> buttonPress(server.getText(), recursive.selectedProperty().getValue(), name.getText(), timeLbl));
+        layout.getChildren().add(tstBtn);
         layout.getChildren().add(timeLbl);
-
+        
+        Button histBtn = new Button("Show history");
+        histBtn.setStyle("-fx-font-size: 8pt;");
+        histBtn.setOnAction((e) -> History.open(server.getText()));
+        layout.getChildren().add(histBtn);
+        
         Scene scene = new Scene(layout);
         stage.setScene(scene);
         stage.show();
@@ -66,7 +71,7 @@ public class UserInterface extends Application {
                 if (result.lost) {
                     label.setText("Response time: LOST");
                 } else {
-                    label.setText("Response time: " + result.time + " ms");
+                    label.setText("Response time: " + result.duration + " ms");
                 }
             }
         }

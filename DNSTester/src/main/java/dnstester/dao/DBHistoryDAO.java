@@ -1,22 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dnstester.dao;
 
 import dnstester.domain.TestResult;
 import java.sql.*;
-import java.util.List;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
 
 /**
- *
- * @author pera
+ * A SQLite implementation of HistoryDAO
  */
 public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
 
-    Connection conn;
+    private Connection conn;
 
+    /**
+     * Create a new database with a table if needed
+     */
     public DBHistoryDAO() {
         Statement stmt;
         try {
@@ -39,16 +37,24 @@ public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
         }
     }
 
+    /**
+     * Log a test result in history database
+     * 
+     * @param server The server that was tested
+     * @param duration The response time in milliseconds
+     * @param lost Was the query lost?
+     * @param recursive Was the query recursive?
+     */
     @Override
-    public void add(String server, TestResult result) {
+    public void add(String server, long duration, boolean lost, boolean recursive) {
         try {
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO history"
                     + " (Server, Result, Lost, Recursive)"
                     + " VALUES (?, ?, ?, ?)");
-            stmt.setString(1, server);
-            stmt.setLong(2, result.time);
-            stmt.setInt(3, result.lost ? 1 : 0);
-            stmt.setInt(4, result.recursive ? 1 : 0);
+            stmt.setString(1, server.trim().toLowerCase());
+            stmt.setLong(2, duration);
+            stmt.setInt(3, lost ? 1 : 0);
+            stmt.setInt(4, recursive ? 1 : 0);
 
             stmt.executeUpdate();
             stmt.close();
@@ -57,9 +63,31 @@ public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
         }
     }
 
+    /**
+     * Retrieve the test history for a DNS server
+     *
+     * @param server The server to query
+     * @return An Observable List ready for JavaFX TableView
+     */
     @Override
-    public List<TestResult> list(String server) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public ObservableList<HistoryRow> list(String server) {
+        ObservableList<HistoryRow> result = FXCollections.observableArrayList();
+        try {
+            PreparedStatement stmt = conn.prepareStatement("SELECT Timestamp,Result,Lost,Recursive "
+                    + "FROM history WHERE Server=? ORDER BY Timestamp DESC");
+            stmt.setString(1, server.trim().toLowerCase());
+            ResultSet rs = stmt.executeQuery();
 
+            while (rs.next()) {
+                result.add(new HistoryRow(
+                        rs.getString(1),
+                        rs.getBoolean(3) ? "❌" : rs.getString(2) + " ms",
+                        rs.getBoolean(4) ? "✔" : ""));
+            }
+            stmt.close();
+        } catch (Exception e) {
+            System.out.println("Error reading database: " + e.getMessage());
+        }
+        return result;
+    }
 }

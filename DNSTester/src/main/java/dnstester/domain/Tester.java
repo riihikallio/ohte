@@ -26,7 +26,7 @@ public class Tester {
     public TestResult sendQuery(String server, boolean recursive, String name) {
         result = new TestResult();
         buf = new byte[512];
-        // Fixed field at the start
+        // Fixed fields at the beginning
         buf[1] = 1;  // Query ID
         buf[2] = recursive ? (byte) 1 : (byte) 0;  // Recursion Desired
         buf[5] = 1;  // QDCount
@@ -57,7 +57,7 @@ public class Tester {
             return result;
         }
         // Fields after the queried name
-        buf[ptr] = 0;      // End of query string
+        buf[ptr] = 0;      // End of query string marker
         buf[ptr + 2] = 1;  // QType A record
         buf[ptr + 4] = 1;  // QClass Internet Address
 
@@ -75,7 +75,7 @@ public class Tester {
             packet = new DatagramPacket(buf, buf.length);
             socket.setSoTimeout(3000);
             socket.receive(packet);
-            result.time = Math.round((System.nanoTime() - start) / 1e6);
+            result.duration = Math.round((System.nanoTime() - start) / 1e6);
         } catch (SocketTimeoutException e) {
             result.lost = true;
         } catch (Exception e) {
@@ -87,10 +87,10 @@ public class Tester {
             }
         }
 
+        // Record result in history database
         if (!result.fail) {
             HistoryDAO history = new DBHistoryDAO();
-            result.recursive = recursive;
-            history.add(server, result);
+            history.add(server, result.duration, result.lost, recursive);
         }
         return result;
     }
