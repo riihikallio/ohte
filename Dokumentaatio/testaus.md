@@ -24,7 +24,7 @@ Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen rivikattavuus o
 
 ![Kattavuus](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/testaus.png)
 
-Testaamatta jäivät catch-lohkot, jotka liittyivät tietokanta- ja levyjärjestelmävirheisiin.
+Testaamatta jäivät DAO:n catch-lohkot, jotka liittyivät tietokanta- ja levyjärjestelmävirheisiin.
 
 ## Järjestelmätestaus
 
