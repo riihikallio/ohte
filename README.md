@@ -56,7 +56,7 @@ mvn package
 
 generoi hakemistoon _target_ suoritettavan jar-tiedoston _DNSTester-1.0-SNAPSHOT.jar_
 
-Paksun JAR:n generointi kolmelle käyttöjärjestelmälle (Linux, macOS ja Windows) tuottaa paljon varoituksia, joista en päässyt eroon. JAR kuitenkin toimii.
+Paksun JAR:n generointi kolmelle käyttöjärjestelmälle (Linux, macOS ja Windows) tuottaa paljon varoituksia, joista en päässyt eroon. JAR kuitenkin toimii. Vaihtoehtona olisi tehdä jokaiselle käyttöjärjestelmälle oma JAR, mutta tässä tapauksessa paksu JAR ei paisunut kohtuuttoman kokoiseksi.
 
 ### JavaDoc
 
