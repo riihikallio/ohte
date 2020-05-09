@@ -76,4 +76,4 @@ Tiedostoon [checkstyle.xml](https://github.com/riihikallio/ohte/blob/master/chec
 
 Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto _target/site/checkstyle.html_
 
-Tällä hetkellä siellä on yksi virhe: Tester.sendQuery on liian pitkä. Sen voisi pilkkoa alimetodeiksi, mutta samalla ohjelmalogiikka monimutkaistuisi.
+Tällä hetkellä siellä on pari virhettä Tester.sendQuery:ssa, metodit ovat hieman liian pitkiä. Ne voisi pilkkoa alimetodeiksi, mutta samalla ohjelmalogiikka monimutkaistuisi.
