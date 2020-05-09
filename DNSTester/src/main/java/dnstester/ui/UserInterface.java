@@ -65,8 +65,7 @@ public class UserInterface extends Application {
         if (server.length() > 0 && name.length() > 0) {
             TestResult result = tester.sendQuery(server, recursive, name);
             if (result.fail) {
-                Alert a = new Alert(AlertType.ERROR, result.error);
-                a.show();
+                (new Alert(AlertType.ERROR, result.error)).show();
             } else {
                 if (result.lost) {
                     label.setText("Response time: LOST");

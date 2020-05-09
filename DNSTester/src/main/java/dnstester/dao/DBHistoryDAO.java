@@ -29,14 +29,12 @@ public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
                         + "Timestamp TEXT DEFAULT (datetime('now','localtime')), "
                         + "Recursive INTEGER);");
             } catch (SQLException e) {
-                Alert a = new Alert(Alert.AlertType.ERROR, "Error creating table: " + e.getMessage());
-                a.show();
+                (new Alert(Alert.AlertType.ERROR, "Error creating table: " + e.getMessage())).show();
             } finally {
                 stmt.close();
             }
         } catch (Exception e) {
-            Alert a = new Alert(Alert.AlertType.ERROR, "Error opening database: " + e.getMessage());
-            a.show();
+            (new Alert(Alert.AlertType.ERROR, "Error opening database: " + e.getMessage())).show();
         }
     }
 
@@ -62,8 +60,7 @@ public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
             stmt.executeUpdate();
             stmt.close();
         } catch (Exception e) {
-            Alert a = new Alert(Alert.AlertType.ERROR, "Error writing database: " + e.getMessage());
-            a.show();
+            (new Alert(Alert.AlertType.ERROR, "Error writing database: " + e.getMessage())).show();
         }
     }
 
@@ -90,8 +87,7 @@ public class DBHistoryDAO implements HistoryDAO<TestResult, String> {
             }
             stmt.close();
         } catch (Exception e) {
-            Alert a = new Alert(Alert.AlertType.ERROR, "Error reading database: " + e.getMessage());
-            a.show();
+            (new Alert(Alert.AlertType.ERROR, "Error reading database: " + e.getMessage())).show();
         }
         return result;
     }
