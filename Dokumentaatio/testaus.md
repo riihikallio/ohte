@@ -38,8 +38,4 @@ Sovellusta on testattu sekä tilanteissa, joissa ohjelma on luonut uuden tietoka
 
 ### Toiminnallisuudet
 
-Kaikki [määrittelydokumentin](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/vaatimukset.md) ja [käyttöohjeen](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/ohje.md) listaamat toiminnallisuudet on käyty läpi. Kaikkien toiminnallisuuksien yhteydessä on syötekentät yritetty täyttää myös virheellisillä arvoilla kuten tyhjillä tai pelkillä pisteillä.
-
-## Sovellukseen jääneet laatuongelmat
-
-Osa virheilmoituksista tulee System.out:lla, jota tavallinen käyttäjä ei näe.
+Kaikki [määrittelydokumentin](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/vaatimukset.md) ja [käyttöohjeen](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/ohje.md) kuvaamat toiminnallisuudet on käyty läpi. Kaikkien toiminnallisuuksien yhteydessä on syötekentät yritetty täyttää myös virheellisillä arvoilla kuten tyhjillä tai pelkillä pisteillä.
