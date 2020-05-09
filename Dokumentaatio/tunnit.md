@@ -20,4 +20,5 @@
 | 8.5. | 4 | TableView-toimii |
 |  | 2 | Dokumentaatiota |
 |  | 7 | Testejä ja viimeistelyä |
-| Yht | 59 | |
+| 9.5. | 2 | Viimeistelyä |
+| Yht | 61 | |

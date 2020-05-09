@@ -56,6 +56,8 @@ mvn package
 
 generoi hakemistoon _target_ suoritettavan jar-tiedoston _DNSTester-1.0-SNAPSHOT.jar_
 
+Paksun JAR:n generointi kolmelle käyttöjärjestelmälle (Linux, macOS ja Windows) tuottaa paljon varoituksia, joista en päässyt eroon. JAR kuitenkin toimii.
+
 ### JavaDoc
 
 JavaDoc generoidaan komennolla

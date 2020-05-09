@@ -20,7 +20,7 @@ Testit käyttävät normaalia tietokantaa. Testeissä tietokantaan tallettuvat t
 
 ### Testauskattavuus
 
-Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen rivikattavuus on 85% ja haarautumakattavuus 100%
+Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen rivikattavuus on 87% ja haarautumakattavuus 100%
 
 ![Kattavuus](https://github.com/riihikallio/ohte/blob/master/Dokumentaatio/Kuvat/testaus.png)
 
